@@ -8,12 +8,12 @@ int check_cycle(listint_t *list)
 {
 	listint_t *hare = list, *turtle = list;
 
-	while(hare && hare->next)
+	while (hare && hare->next)
 	{
 		turtle = turtle->next;
 		hare = hare->next->next;
-		if(hare == turtle)
-			return(1);
+		if (hare == turtle)
+			return (1);
 	}
-	return(0);
+	return (0);
 }
