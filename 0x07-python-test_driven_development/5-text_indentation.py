@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+'''prints a text with 2 new lines after each
+    of these characters: ., ? and :'''
+
+
 def text_indentation(text):
-    '''prints a text with 2 new lines after each of these characters: ., ? and :'''
+    '''prints a text with 2 new lines after each
+    of these characters: ., ? and :'''
     if type(text) is not str:
         raise TypeError("text must be a string")
 
@@ -18,7 +23,6 @@ def text_indentation(text):
         else:
             if switch == 0:
                 print(text[index], end="")
-    
             elif switch == 1 and text[index] == ' ':
                 '''When switch is 1 we don't have to print  whitespaces'''
                 continue

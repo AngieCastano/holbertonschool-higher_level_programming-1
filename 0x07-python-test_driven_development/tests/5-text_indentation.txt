@@ -42,7 +42,7 @@ Sin aliud quid voles, postea.
 <BLANKLINE>
 Quae animi affectio suum cuique tribuens atque hanc, quam dico.
 <BLANKLINE>
-Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres>>>
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
 ________________________________________________________________________
 Trying to print a non-string argument:
@@ -56,14 +56,14 @@ Whitespaces in the beggining of the string:
 >>> text_indentation('     Hola.    Dylan')
 Hola.
 <BLANKLINE>
-Dylan>>>
+Dylan
 
 ________________________________________________________________________
 Whitespaces at the end of the string:
-Dylan>>> text_indentation('Hola?Dylan     ')
+>>> text_indentation('Hola?Dylan     ')
 Hola?
 <BLANKLINE>
-Dylan>>>
+Dylan
 
 ________________________________________________________________________
 Whitespaces at the end of the string, after a '?' char:

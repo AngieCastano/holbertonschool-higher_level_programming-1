@@ -13,12 +13,7 @@ My name is John Smith
 _________________________________________________________
 Passing just one string:
 >>> say_my_name("Bob")
-My name is Bob
-
-_________________________________________________________
-Passing an empty string:
->>> say_my_name('')
-My name is
+My name is Bob 
 
 _________________________________________________________
 Passing a non-string argument and a string:

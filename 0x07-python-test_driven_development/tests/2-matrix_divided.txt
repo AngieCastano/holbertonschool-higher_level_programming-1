@@ -41,6 +41,8 @@ __________________________________________________________________
 Items of the matrix are lists but don't have the same lenght:
 >>> matrix = [[1, 2, 3, 4], [5, 6, 7]]
 >>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
 TypeError: Each row of the matrix must have the same size
 
 Matrix with 3 lists:
