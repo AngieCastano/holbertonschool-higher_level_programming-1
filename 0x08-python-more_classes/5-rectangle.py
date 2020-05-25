@@ -9,15 +9,16 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         string_r = ''
-        for i in range (self.__height):
-            for j in range (self.__width):
+        for i in range(self.__height):
+            for j in range(self.__width):
                 string_r += '#'
             if i < (self.height - 1):
                 string_r += '\n'
         return string_r
 
     def __repr__(self):
-        return "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
+        return "Rectangle(" + str(self.__width) + \
+         ", " + str(self.__height) + ")"
 
     def __del__(self):
         print("Bye rectangle...")
