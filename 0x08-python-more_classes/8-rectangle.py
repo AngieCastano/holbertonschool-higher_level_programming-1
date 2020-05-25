@@ -15,7 +15,7 @@ class Rectangle:
         string_r = ''
         for i in range (self.__height):
             for j in range (self.__width):
-                string_r += str(Rectangle.print_symbol)
+                string_r += str(self.print_symbol)
             if i < (self.height - 1):
                 string_r += '\n'
         return string_r
