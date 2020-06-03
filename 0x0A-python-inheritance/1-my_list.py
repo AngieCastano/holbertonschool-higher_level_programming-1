@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Python in Holberton """
+""" Documentation """
 
 
 class MyList(list):
