@@ -12,11 +12,11 @@ Sorting and printing empty list:
     []
 
 Normal list:
+    >>> list.append(3)
+    >>> list.append(2)
     >>> list.append(1)
-    >>> list.append(2)
-    >>> list.append(2)
     >>> print(list)
-    [1, 2, 3]
+    [3, 2, 1]
 
 Sormal use of function:
     >>> list.print_sorted()
@@ -26,11 +26,11 @@ Sorting and printing negative numbers:
     >>> list.append(-12)
     >>> list.append(-1)
     >>> print(list)
-    [1, 2, 3, -12, -1]
+    [3, 2, 1, -12, -1]
     >>> list.print_sorted()
-    [-12, -1, 3, 2, 1]
+    [-12, -1, 1, 2, 3]
     >>> print(list)
-    [1, 2, 3, -12, -1]
+    [3, 2, 1, -12, -1]
 
 Wrong arguments:
     >>> list.print_sorted(1)
