@@ -1,0 +1,22 @@
+Importing the module:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Normal usage:
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+    >>> bg.integer_validator("width", 89)
+
+Value less than 0:
+    >>> bg.integer_validator("age", -4)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+Value aqual to 0
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+Value type different to int:
+    >>> bg.integer_validator("age", "Hello")
+    Traceback (most recent call last):
+    TypeError: age must be an integer
