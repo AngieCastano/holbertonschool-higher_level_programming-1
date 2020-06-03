@@ -1,0 +1,26 @@
+Importing the module:
+       >>> MyList = __import__('1-my_list').MyList
+
+Normal print:
+       >>> l = MyList([3, 2, 1])
+       >>> print(l)
+       [3, 2, 1]
+
+Empty list:
+       >>> a = MyList(None)
+       Traceback (most recent call last):
+       TypeError: 'NoneType' object is not iterable
+
+Print sorted:
+       >>> l.print_sorted()
+       [1, 2, 3]
+
+Print empty sorted list:
+       >>> l = MyList()
+       >>> l.print_sorted()
+       []
+
+List with elements of multiple types:
+       >>> l = MyList([7, "Betty", "Holberton", 4])
+       >>> l.print_sorted()
+       [4, 7, 'Betty', 'Holberton']
