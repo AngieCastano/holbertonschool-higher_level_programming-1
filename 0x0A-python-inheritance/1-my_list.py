@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-''' Python in Holberton '''
+""" Python in Holberton """
 
 
 class MyList(list):
-    ''' Class inherited from list '''
+    """ Class """
     def print_sorted(self):
         print(sorted(self))
