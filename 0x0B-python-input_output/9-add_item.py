@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 
@@ -15,6 +15,6 @@ try:
 except Exception:
     new_list = list()
 finally:
-    for i in range(1, len(sys.argv)):
-        new_list.append(sys.argv[i])
+    for i in argv[1:]:
+        new_list.append(i)
     save_to_json_file(new_list, 'add_item.json')
