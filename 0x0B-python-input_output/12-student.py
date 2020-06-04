@@ -9,9 +9,17 @@ class Student():
         self.last_name = last_name
         self.age = age
 
+    def list_of_str(self, my_list):
+        if type(my_list) is not list:
+            return False
+        for item in my_list:
+            if type(item) is not str:
+                return False
+        return True
+
     def to_json(self, attrs=None):
         '''returns the dictionary description'''
-        if attrs is None or attrs == []:
-            return self.__dict__
-        else:
+        if self.list_of_str(attrs):
             return {x: self.__dict__[x] for x in self.__dict__ if x in attrs}
+        else:
+            return self.__dict__
