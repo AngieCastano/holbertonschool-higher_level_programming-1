@@ -50,13 +50,13 @@ class Base:
         writes the JSON string representation
         of list_objs to a file
         '''
+        new_list = []
         if list_objs and len(list_objs) > 0:
             str = ''
-            new_list = []
             for item in list_objs:
                 new_list.append(item.to_dictionary())
-            with open(cls.__name__ + '.json', 'w') as f:
-                f.write(Base.to_json_string(new_list))
+        with open(cls.__name__ + '.json', 'w') as f:
+            f.write(Base.to_json_string(new_list))
 
     @classmethod
     def create(cls, **dictionary):
