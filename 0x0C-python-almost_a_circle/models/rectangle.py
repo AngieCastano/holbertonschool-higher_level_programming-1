@@ -82,15 +82,25 @@ class Rectangle(Base):
     '''
 
     def area(self):
+        '''
+        returns the area value of the instance
+        '''
         return self.width * self.height
 
     def display(self):
+        '''
+        Prints in stdout the Rectangle
+        instance with the character #
+        '''
         print('\n' * self.y, end='')
         for i in range(self.height):
             print(' ' * self.x, end='')
             print('#' * self.width)
 
     def update(self, *args, **kwargs):
+        '''
+        Assigns an argument to each attribute
+        '''
         attrs = ['id', 'width', 'height', 'x', 'y']
         if args and len(args) > 0:
             for i in range(len(args)):
@@ -100,6 +110,10 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        '''
+        returns the dictionary representation of
+        a Rectangle instance
+        '''
         attrs = ['id', 'width', 'height', 'x', 'y']
         new_dict = {}
         for key in attrs:

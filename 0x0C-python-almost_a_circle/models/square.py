@@ -5,12 +5,18 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     '''
-    Class that inherits Rec
+    Class that inherits Rectangle
     '''
     def __init__(self, size, x=0, y=0, id=None):
+        '''
+        Instantiatior
+        '''
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        '''
+        Setting str representation
+        '''
         return '[Square] ({}) {}/{} - {}'\
             .format(self.id, self.x, self.y, self.width)
 
@@ -29,6 +35,9 @@ class Square(Rectangle):
     Public Methods
     '''
     def update(self, *args, **kwargs):
+        '''
+        that assigns attributes
+        '''
         attrs = ['id', 'size', 'x', 'y']
         if args and len(args) > 0:
             for i in range(len(args)):
@@ -46,6 +55,10 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        '''
+        returns the dictionary representation
+        of a Square instance
+        '''
         attrs = ['id', 'size', 'x', 'y']
         new_dict = {}
         for key in attrs:
