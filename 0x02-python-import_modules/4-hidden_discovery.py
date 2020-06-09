@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+q#!/usr/bin/python3
 if __name__ == "__main__":
     import hidden_4
     list = dir(hidden_4)
