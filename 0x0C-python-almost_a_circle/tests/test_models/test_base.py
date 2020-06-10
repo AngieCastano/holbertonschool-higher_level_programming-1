@@ -58,6 +58,19 @@ class TestBaseMethods(unittest.TestCase):
         result = Base.to_json_string([])
         self.assertEqual(result, "[]")
 
+        result = Base.to_json_string([{'id': 12}])
+        self.assertEqual(result, '[{"id": 12}]')
+
+    def test_from_json_string(self):
+        result = Base.from_json_string(None)
+        self.assertEqual(result, [])
+
+        result = Base.from_json_string([])
+        self.assertEqual(result, [])
+
+        result = Base.from_json_string('[{ "id": 89 }]')
+        self.assertEqual(result, [{'id': 89}])
+
 
 if __name__ == '__main__':
     unittest.main()
