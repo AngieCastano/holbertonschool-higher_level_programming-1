@@ -53,10 +53,10 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_to_json_string(self):
         result = Base.to_json_string(None)
-        assertEquals(result, "[]")
+        self.assertEqual(result, "[]")
 
         result = Base.to_json_string([])
-        assertEquals(result, "[]")
+        self.assertEqual(result, "[]")
 
 
 if __name__ == '__main__':
