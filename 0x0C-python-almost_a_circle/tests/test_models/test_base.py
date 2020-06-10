@@ -51,6 +51,13 @@ class TestBaseMethods(unittest.TestCase):
             '__init__() takes from 1 to 2 positional arguments but 3 were given',
             str(error.exception))
 
+    def test_to_json_string(self):
+        result = Base.to_json_string(None)
+        assertEquals(result, "[]")
+
+        result = Base.to_json_string([])
+        assertEquals(result, "[]")
+
 
 if __name__ == '__main__':
     unittest.main()
