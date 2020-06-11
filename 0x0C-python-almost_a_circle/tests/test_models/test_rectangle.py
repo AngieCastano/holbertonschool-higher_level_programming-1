@@ -9,20 +9,20 @@ from models.rectangle import Rectangle
 from models.base import Base
 import json
 import unittest
-
+import os
 
 class TestRectangleMethods(unittest.TestCase):
     def test_rectangle(self):
         ''' Tests for rectangle base'''
         r1 = Rectangle(1, 2)
-        self.assertEqual(r1.id, 14)
+        self.assertEqual(r1.id, 18)
         self.assertEqual(r1.x, 0)
         self.assertEqual(r1.y, 0)
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
 
         r2 = Rectangle(1, 2, 3)
-        self.assertEqual(r2.id, 15)
+        self.assertEqual(r2.id, 19)
         self.assertEqual(r2.x, 3)
         self.assertEqual(r2.y, 0)
         self.assertEqual(r2.width, 1)
@@ -175,6 +175,57 @@ class TestRectangleMethods(unittest.TestCase):
         r24 = Rectangle.create(**{ 'id': 500, 'width': 2, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(print(r24.to_dictionary()),
             print("{'height': 2, 'x': 3, 'y': 4, 'width': 2, 'id': 500}"))
+
+    def test_save_to_file_rectangle(self):
+        r25 = Rectangle(1, 2, 1, 1, 600)
+        r26 = Rectangle(2, 4, 2, 2, 700)
+        r_list = [r25, r26]
+        Rectangle.save_to_file(r_list)
+
+        with open("Rectangle.json", "r") as file:
+            reader = file.read()
+            to_dict = [r25.to_dictionary(), r26.to_dictionary()]
+            self.assertEqual(reader, json.dumps(to_dict))
+
+        r_list = []
+        Rectangle.save_to_file(r_list)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+
+    def test_load_from_file_rectangle(self):
+        ''' Normal usage'''
+        r27 = Rectangle(10, 7, 2, 8)
+        r28 = Rectangle(2, 4)
+        list_rectangles_input = [r27, r28]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(list_rectangles_input[0].to_dictionary(), list_rectangles_output[0].to_dictionary())
+        self.assertEqual(list_rectangles_input[1].to_dictionary(), list_rectangles_output[1].to_dictionary())
+
+        '''File does not exists'''
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        finally:
+            self.assertEqual(Rectangle.load_from_file(), [])
+
+        '''Empty file'''
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        with open("Rectangle.json", 'a') as file:
+            pass
+        self.assertEqual(Rectangle.load_from_file(), [])
+
 
 if __name__ == '__main__':
     unittest.main()
