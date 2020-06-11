@@ -30,8 +30,8 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(b3.id, 3, 'Id assigned in a wrong way')
         self.assertIsInstance(b3, Base, 'Wrong instance\'s class')
 
-        b4 = Base(12)
-        self.assertEqual(b4.id, 12, 'Id assigned in a wrong way')
+        b4 = Base(89)
+        self.assertEqual(b4.id, 89, 'Id assigned in a wrong way')
         self.assertIsInstance(b4, Base, 'Wrong instance\'s class')
 
         b5 = Base()
@@ -61,6 +61,9 @@ class TestBaseMethods(unittest.TestCase):
         result = Base.to_json_string([{'id': 12}])
         self.assertEqual(result, '[{"id": 12}]')
 
+        result = Base.to_json_string([{'id': 12}])
+        self.assertEqual(type(result), str)
+
     def test_from_json_string(self):
         result = Base.from_json_string(None)
         self.assertEqual(result, [])
@@ -70,6 +73,9 @@ class TestBaseMethods(unittest.TestCase):
 
         result = Base.from_json_string('[{ "id": 89 }]')
         self.assertEqual(result, [{'id': 89}])
+
+        result = Base.from_json_string('[{ "id": 89 }]')
+        self.assertEqual(type(result), list)
 
 
 if __name__ == '__main__':
