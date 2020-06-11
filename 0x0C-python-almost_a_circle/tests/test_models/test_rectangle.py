@@ -71,12 +71,12 @@ class TestRectangleMethods(unittest.TestCase):
             Rectangle(0, 2)
         self.assertEqual(error_msg, str(error.exception))
 
-        error_msg = 'x must be > 0'
+        error_msg = 'x must be >= 0'
         with self.assertRaises(ValueError)as error:
             Rectangle(1, 2, -3)
         self.assertEqual(error_msg, str(error.exception))
 
-        error_msg = 'y must be > 0'
+        error_msg = 'y must be >= 0'
         with self.assertRaises(ValueError)as error:
             Rectangle(1, 2, 3, -4)
         self.assertEqual(error_msg, str(error.exception))
