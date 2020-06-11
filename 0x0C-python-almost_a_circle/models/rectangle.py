@@ -119,3 +119,6 @@ class Rectangle(Base):
         for key in attrs:
             new_dict[key] = getattr(self, key)
         return new_dict
+
+if __name__ == '__main__':
+    Rectangle("1", 2)

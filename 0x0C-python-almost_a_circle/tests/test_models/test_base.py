@@ -40,11 +40,6 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_base_args(self):
 
-        error_msg = 'type object \'Base\' has no attribute \'_TestBaseMethods__nb_objects\''
-        with self.assertRaises(AttributeError) as error:
-            Base.__nb_objects
-        self.assertEqual(error_msg, str(error.exception))
-
         with self.assertRaises(TypeError) as error:
             b6 = Base(10, 20)
         self.assertEqual(

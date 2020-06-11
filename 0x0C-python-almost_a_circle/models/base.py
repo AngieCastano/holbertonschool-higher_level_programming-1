@@ -4,7 +4,7 @@ Almost a circle project
 Holberton program
 '''
 import json
-
+import csv
 
 class Base:
     '''
@@ -83,6 +83,41 @@ class Base:
                 ins_list = Base.from_json_string(file_string)
                 for item in ins_list:
                     new_list.append(cls.create(**item))
+                return new_list
+        except Exception:
+            return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''
+        serializes in CSV
+        '''
+        new_list = []
+        with open(cls.__name__ + '.csv', 'w') as f:
+            if list_objs and len(list_objs) > 0:
+                if cls.__name__ == 'Rectangle':
+                    header = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == 'Square':
+                    header = ['id', 'size', 'x', 'y']
+
+                writer = csv.DictWriter(f, header)
+                writer.writeheader()
+                for item in list_objs:
+                    writer.writerow(item.to_dictionary())
+            else:
+                file.write('[]')
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''
+        deserializes from CSV
+        '''
+        new_list = list()
+        try:
+            with open(cls.__name__ + '.csv', 'r', newline='') as csvf:
+                freader = csv.reader(csvf)
+                for row in freader:
+                    new_list.append(cls.create(**row))
                 return new_list
         except Exception:
             return new_list
