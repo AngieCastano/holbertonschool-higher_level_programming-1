@@ -25,4 +25,4 @@ if __name__ == '__main__':
     if ResultSet:
         print("{}: {}".format(ResultSet[0], ResultSet[1]))
     else:
-        print("")
+        print("Nothing")
