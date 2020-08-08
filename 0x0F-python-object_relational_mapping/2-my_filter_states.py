@@ -14,7 +14,7 @@ if __name__ == '__main__':
         passwd=sys.argv[2], db=sys.argv[3])
 
     cur = conn.cursor()
-    sql_stat = "SELECT * FROM states WHERE name = '{}'\
+    sql_stat = "SELECT * FROM states WHERE BINARY name = '{}'\
     ORDER BY id ASC".format(sys.argv[4])
 
     cur.execute(sql_stat)
