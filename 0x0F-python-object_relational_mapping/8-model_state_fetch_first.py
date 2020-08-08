@@ -22,7 +22,7 @@ if __name__ == '__main__':
     ResultProxy = conn.execute(query)
     ResultSet = ResultProxy.fetchone()
 
-    if ResultSet is not None:
+    if ResultSet:
         print("{}: {}".format(ResultSet[0], ResultSet[1]))
     else:
         print("")
