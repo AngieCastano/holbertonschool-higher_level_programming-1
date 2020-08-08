@@ -20,7 +20,7 @@ if __name__ == '__main__':
     query = sa.select([states])
 
     ResultProxy = conn.execute(query)
-    ResultSet = ResultProxy.fetchone()
+    ResultSet = ResultProxy.first()
 
     if ResultSet:
         print("{}: {}".format(ResultSet[0], ResultSet[1]))
