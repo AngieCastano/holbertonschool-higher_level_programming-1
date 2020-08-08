@@ -24,3 +24,5 @@ if __name__ == '__main__':
 
     if ResultSet is not None:
         print("{}: {}".format(ResultSet[0], ResultSet[1]))
+    else:
+        print("")
