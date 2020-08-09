@@ -17,10 +17,11 @@ if __name__ == '__main__':
     metadata = sa.MetaData()
 
     states = sa.Table('states', metadata, autoload=True, autoload_with=engine)
-    query = sa.insert(states).values(name='Louisiana')
-    query = sa.select([states])
 
+    query = sa.insert(states).values(name='Louisiana')
+    ResultProxy = conn.execute(query)
+
+    query = sa.select([states])
     ResultProxy = conn.execute(query)
     ResultSet = ResultProxy.fetchall()
-
     print(ResultSet[-1][0])
