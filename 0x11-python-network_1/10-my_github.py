@@ -11,4 +11,4 @@ if __name__ == '__main__':
     url = 'https://api.github.com/user'
     res = r.get(url, auth=(argv[1], argv[2]))
     json_res = res.json()
-    print(json_res['id'])
+    print(json_res.get('id'))
