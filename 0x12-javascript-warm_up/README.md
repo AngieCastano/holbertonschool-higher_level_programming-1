@@ -59,4 +59,4 @@ What I learnt from this project:
 ---
 
 ## Author
-* **Anderson Castiblanco** - [Github](github.com/andergcp) - [LinkedIn](linkedin.com/in/andergcp)
+* Anderson Castiblanco - [Github](github.com/andergcp) - [LinkedIn](linkedin.com/in/andergcp)
