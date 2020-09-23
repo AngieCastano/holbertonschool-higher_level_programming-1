@@ -7,14 +7,17 @@ const characterURL = 'https://swapi-api.hbtn.io/api/people/' + characterID + '/'
 let counter = 0;
 
 request(URL, function (err, response, body) {
-  const jsonObj = JSON.parse(body);
-  const movies = jsonObj.results;
-  for (let i = 0; i < movies.length; i++) {
-    const characters = movies[i].characters;
-    if (characters.includes(characterURL)) {
-      counter += 1;
+  if (err) {
+    console.error(err);
+  } else {
+    const jsonObj = JSON.parse(body);
+    const movies = jsonObj.results;
+    for (let i = 0; i < movies.length; i++) {
+      const characters = movies[i].characters;
+      if (characters.includes(characterURL)) {
+        counter += 1;
+      }
     }
+    console.log(counter);
   }
-  console.log(counter);
-  if (err) {}
 });
